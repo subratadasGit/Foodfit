@@ -67,10 +67,6 @@ export const generateRecipe = async (req, res, next) => {
       cookingTime = "medium"
     } = req.body || {};
 
-    // #region agent log
-    globalThis.fetch?.('http://127.0.0.1:7429/ingest/860c1e93-04d7-494b-8f7c-ce92bf59e777',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'4d38f5'},body:JSON.stringify({sessionId:'4d38f5',runId:'post-fix',hypothesisId:'H2',location:'backend/controllers/recipeController.js:generateRecipe',message:'generateRecipe request received',data:{userId:req.user?.id,ingredientsLen:Array.isArray(ingredients)?ingredients.length:null,usePantryIngredients,dietaryRestrictionsLen:Array.isArray(dietaryRestrictions)?dietaryRestrictions.length:null,cuisineType,servings,cookingTime},timestamp:Date.now()})})?.catch?.(()=>{});
-    // #endregion
-
     let finalIngredients = Array.isArray(ingredients) ? [...ingredients] : [];
 
     if (usePantryIngredients) {

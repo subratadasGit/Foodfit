@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -17,12 +16,6 @@ import Settings from './pages/Settings';
 import MealPlanner from './pages/MealPlanner';
 
 function App() {
-  useEffect(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7429/ingest/860c1e93-04d7-494b-8f7c-ce92bf59e777',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'4d38f5'},body:JSON.stringify({sessionId:'4d38f5',runId:'pre-fix',hypothesisId:'H5',location:'src/App.jsx:useEffect',message:'App mounted instrumentation ping',data:{path:window.location.pathname},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-  }, []);
-
   return (
     <AuthProvider>
       <Router>
