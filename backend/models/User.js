@@ -2,7 +2,7 @@
 import db from "../config/db.js";
 
 // Import bcrypt for password hashing
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 /*
   User Model
